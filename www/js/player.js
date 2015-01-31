@@ -945,6 +945,14 @@ function FilePlayer(data) {
             .attr("height", VHEIGHT)
             .attr("autoplay", true)
             .html("Your browser does not support HTML5 <code>&lt;video&gt;</code> tags :(");
+
+        if (USEROPTS.show_subtitles && data.meta.subtitles) {
+            $("<track/>")
+                .attr("src", data.meta.subtitles)
+                .prop("default", true)
+                .prependTo(video);
+        }
+
         video.error(function (err) {
             setTimeout(function () {
                 console.log("<video> tag failed, falling back to Flash");

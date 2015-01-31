@@ -348,6 +348,7 @@ function queue(pos, src) {
         var data = parseMediaLink(link);
         var duration = undefined;
         var title = undefined;
+        var subtitles = undefined;
         if (link.indexOf("jw:") === 0) {
             duration = parseInt($("#addfromurl-duration-val").val());
             if (duration <= 0 || isNaN(duration)) {
@@ -356,6 +357,7 @@ function queue(pos, src) {
         }
         if (data.type === "fi") {
             title = $("#addfromurl-title-val").val();
+            subtitles = $("#addfromurl-subtitles-val").val();
         }
 
         if (data.id == null || data.type == null) {
@@ -366,13 +368,15 @@ function queue(pos, src) {
             $("#mediaurl").val("");
             $("#addfromurl-duration").remove();
             $("#addfromurl-title").remove();
+            $("#addfromurl-subtitles").remove();
             socket.emit("queue", {
                 id: data.id,
                 type: data.type,
                 pos: pos,
                 duration: duration,
                 title: title,
-                temp: $(".add-temp").prop("checked")
+                temp: $(".add-temp").prop("checked"),
+                subtitles: subtitles
             });
         }
     }
@@ -423,8 +427,27 @@ $("#mediaurl").keyup(function(ev) {
                     })
                     .appendTo($("#addfromurl-title"));
             }
+
+            var subtitles = $("#addfromurl-subtitles");
+            if (subtitles.length === 0) {
+                subtitles = $("<div/>")
+                    .attr("id", "addfromurl-subtitles")
+                    .appendTo($("#addfromurl"));
+                $("<span/>").text("Subtitles File (optional)")
+                    .appendTo(subtitles);
+                $("<input class=\"form-control\"/>")
+                    .attr("type", "text")
+                    .attr("id", "addfromurl-subtitles-val")
+                    .keyup(function (ev) {
+                        if (ev.keyCode === 13) {
+                            queue("end", "url");
+                        }
+                    })
+                    .appendTo(subtitles);
+            }
         } else {
             $("#addfromurl-title").remove();
+            $("#addfromurl-subtitles").remove();
         }
     }
 });

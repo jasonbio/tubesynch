@@ -114,7 +114,8 @@ var USEROPTS = {
     default_quality      : getOrDefault("default_quality", ""),
     boop                 : getOrDefault("boop", "never"),
     secure_connection    : getOrDefault("secure_connection", false),
-    show_shadowchat      : getOrDefault("show_shadowchat", false)
+    show_shadowchat      : getOrDefault("show_shadowchat", false),
+    show_subtitles       : getOrDefault("show_subtitles", true)
 };
 
 /* Backwards compatibility check */
