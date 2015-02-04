@@ -1,0 +1,51 @@
+doctype html
+html(lang="en")
+  head
+    - var pageName = "terms of service"
+    include head
+    mixin head()
+  body
+    #wrap
+      nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+        include nav
+        mixin navheader()
+        #nav-collapsible.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            mixin navdefaultlinks("/tos")
+          mixin navloginlogout("/tos")
+      section#mainpage
+        .container
+          .col-md-12
+            h1(style="font-size: 30px;font-weight: bold;color: #fff") Terms of Service
+            p.
+              By accessing "tubesynch.com" (hereinafter "we", "us", "our", "tubesynch.com", "tubesynch", "tube synch"), you agree to be bound by the following terms. If you do not agree to be bound by all of the following terms then please do not access and/or use tubesynch. We may change these terms at any time without prior notice. It would be prudent to review these terms regularly, as you are still bound by these terms after they are updated and/or amended.
+            p.
+              Content on tubesynch is provided "as-is". tubesynch makes no warranties, express or implied, and hereby disclaims and negates all other warranties, including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights. Furthermore, tubesynch does not make any representations concerning the accuracy or reliability of content present on tubesynch.
+            p.
+              tubesynch permits users to share links, embedded content, or other content insofar as the shared content complies with our terms of service, United States law, and where applicable, local laws. tubesynch is not responsible for the content shared, or any consequences of sharing such content. tubesynch does not endorse any user-provided content. Viewing shared content is done at the user's own risk.
+            p.
+              All content and activity this website must comply with United States law, and where applicable, local laws. Prohibited content and activities include, but are not limited to:
+            ul
+              li Child pornography
+              li Warez
+              li Copyright infringement
+              li Blackmail, slander, or other defamatory statements
+              li Phishing
+            p.
+              <strong style="color:#fff">Channel Rules</strong>
+            p.
+              Individual channel rules are largely left to the discretion of the channel's moderators and administrators, however the following rules apply globally:
+            ul
+              li Trolling, spamming, or otherwise intentionally disrupting any channel is not allowed.
+              li Bullying or otherwise intending to hurt other users is not allowed.
+            p.
+              <strong style="color:#fff">Copyright/Intellectual Property</strong>
+            p.
+              tubesynch gives users the ability to add any publicly available media from the online providers that tubesynch supports (YouTube, Dailymotion, Vimeo, etc. - full list on the <a href="/help" style="color: #E54D4D">help</a> page) into channel playlists. Because of this, content that may infringe upon the intellectual property rights of others may be included, however tubesynch IN NO WAY provides or promotes the copying, downloading, or distribution of the intellectual property of others. All videos have already been uploaded and made public on the specific providers website prior to being added to a tubesynch channel. If you are a rightsholder or are authorized to represent a rightsholder that wishes to assert ownership over media, you should send a copyright infringement notification to the correct provider. tubesynch cannot do anything about the infringing content because tubesynch does not host any media on the servers it owns. Below are links to start this process with some of the different providers tubesynch supports. tubesynch will NOT forward any notice it receives to the correct provider - that responsibility lies with the rightsholder - please do not send us any notices of copyright infringement.
+            p.
+              <a href="https://support.google.com/youtube/answer/2807622/" target="_blank" style="color: #E54D4D">YouTube</a>&nbsp;&middot;&nbsp;<a href="http://www.dailymotion.com/legal/copyright" target="_blank" style="color: #E54D4D">Dailymotion</a>&nbsp;&middot;&nbsp;<a href="http://vimeo.com/dmca" target="_blank" style="color: #E54D4D">Vimeo</a>&nbsp;&middot;&nbsp;<a href="http://vaughnlive.tv/copyright" target="_blank" style="color: #E54D4D">VaughnLive.tv</a>&nbsp;&middot;&nbsp;<a href="http://www.twitch.tv/user/legal?page=dmca" target="_blank" style="color: #E54D4D">Twitch.tv</a>&nbsp;&middot;&nbsp;<a href="http://www.livestream.com/info/contact/takedown" target="_blank" style="color:#E54D4D">Livestream</a>&nbsp;&middot;&nbsp;<a href="http://www.ustream.tv/copyright-policy" target="_blank" style="color:#E54D4D">Ustream</a>&nbsp;&middot;&nbsp;<a href="https://soundcloud.com/pages/dmca_policy" target="_blank" style="color:#E54D4D">SoundCloud</a>&nbsp;&middot;&nbsp;<a href="https://imgur.com/tos#dmca" target="_blank" style="color:#E54D4D">Imgur</a>
+
+          span.text-muted.credit(style="font-size: 13px;color: #FFF;text-shadow: 1px 1px 1px #000;background: #0C0C0C;padding: 10px;border: 1px solid #000;text-align: right;float: right;margin-top: 10px;margin-bottom: -10px;width: 100%;margin-right: -1px").
+            tubesynch copyright &copy; 2014&nbsp;&nbsp;&nbsp;<a href="/" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">channels</a>&nbsp;&middot;&nbsp;<a href="/search" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">search</a>&nbsp;&middot;&nbsp;<a href="/faq" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">faq</a>&nbsp;&middot;&nbsp;<a href="/help" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">help</a>&nbsp;&middot;&nbsp;<a href="/about" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">about</a>&nbsp;&middot;&nbsp;<a href="/feedback" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">feedback</a>&nbsp;&middot;&nbsp;<a href="/tos" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">terms of service</a>&nbsp;&middot;&nbsp;<a href="/privacypolicy" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">privacy policy</a>
+    include footer
+    mixin footer()

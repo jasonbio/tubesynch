@@ -1,0 +1,67 @@
+doctype html
+html(lang="en")
+  head
+    - var pageName = "privacy policy"
+    include head
+    mixin head()
+  body
+    #wrap
+      nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+        include nav
+        mixin navheader()
+        #nav-collapsible.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            mixin navdefaultlinks("/privacypolicy")
+          mixin navloginlogout("/privacypolicy")
+      section#mainpage
+        .container
+          .col-md-12
+            h1(style="font-size: 30px;font-weight: bold;color: #fff") Privacy Policy
+            p.
+              This page outlines how tubesynch handles the privacy of registered and anonymous users on "tubesynch.com" (hereinafter "we", "us", "our", "tubesynch.com", "tubesynch", "tube synch"). Information is ONLY collected if you choose to register an account. Browsing the site anonymously (without an account), even if you use a guest nickname in a channel, only leaves an IP address log of your visit and the pages you viewed.
+            p.
+              <strong style="color:#fff">What information do we collect?</strong>
+            p.
+              We collect information from you when you register an account. When registering, the only required information you must enter is your: desired nickname (username), and a password of your choosing. It should be noted that while we do collect your password, it is encrypted within our database - so all that's collected is a hash string. Your password is not collected in plain-text. Once registered, a user will have the option to add more information about themselves to their account - but all information is added willingly and is OPTIONAL. It is not required to give more than what it takes to register an account.
+            p.
+              You have the choice to register an account or visit our site anonymously.
+            p.
+              Your information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever.
+            p.
+              <strong style="color:#fff">What do we use your information for?</strong>
+            p.
+              Any of the information we collect from you may be used in one of the following ways:
+            ul
+              li To personalize your experience at tubesynch.com (your information helps us to better respond to your individual needs)
+              li To improve our website (we continually strive to improve our website offerings based on the information and feedback we receive from you)
+              li To administer a survey or other site features
+            p.
+              <strong style="color:#fff">Do we use cookies?</strong>
+            p.
+              Yes. Cookies are small files that a site or its service provider transfers to your computers hard drive through your Web browser (if you allow it to) that enables the sites or service providers systems to recognize your browser and capture and remember certain information. We use cookies to understand and save your preferences for future visits, save user sessions so you do not have to re-log in every time you visit, and compile/aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future. We do not use cookies for any other reason other than to preserve your user session and saved settings at tubesynch.com. It should be noted that third party social media networks may also load cookies via certain pages on our website that contain embedded streams for social related purposes. These cookies will primarily be loaded from Facebook, and Twitter and only serve to better assist you should you be currently logged into an account you previously registered at Facebook or Twitter.
+            p.
+              <strong style="color:#fff">Do we disclose any information to outside parties?</strong>
+            p.
+              We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, so long as those parties agree to keep this information confidential as well (outside third parties are limited to analytic based traffic monitoring ONLY). We may also release your information when we believe it is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety. We do not and will not share any personal account details with other members of tubesynch either.
+            p.
+              <strong style="color:#fff">California Online Privacy Protection Act Compliance (OPPA)</strong>
+            p.
+              Because we value your privacy we have taken the necessary precautions to be in compliance with the California Online Privacy Protection Act. We therefore will not distribute your personal information to outside parties without your consent.
+            p.
+              <strong style="color:#fff">What about individual channels?</strong>
+            p.
+              Because of the nature of tubesynch, individual channel administrators and moderators have access to logging information for the registered members that participate in their channels. The channel administrators have access to text-based logs of all chat joins, chat messages, and the user who typed them. Channel administrators and moderators have access to IP information of specific members for the sole purpose of enforcing an IP ban from the channel should the administrator or moderator decide to ban them. Individual channel bans are at the sole discretion of the administrator or moderator and tubesynch is not liable or held accountable for these bans. Being banned from an individual channel does not ban you from the rest of tubesynch.
+            p.
+              <strong style="color:#fff">Your Consent</strong>
+            p.
+              By using our site and loading "tubesynch.com" on your computer, you consent to our website privacy policy.
+            p.
+              <strong style="color:#fff">Changes to our Privacy Policy</strong>
+            p.
+              If we decide to change our privacy policy, we will post those changes on this page. Changes may be posted without notice.
+
+
+          span.text-muted.credit(style="font-size: 13px;color: #FFF;text-shadow: 1px 1px 1px #000;background: #0C0C0C;padding: 10px;border: 1px solid #000;text-align: right;float: right;margin-top: 10px;margin-bottom: -10px;width: 100%;margin-right: -1px").
+            tubesynch copyright &copy; 2014&nbsp;&nbsp;&nbsp;<a href="/" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">channels</a>&nbsp;&middot;&nbsp;<a href="/search" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">search</a>&nbsp;&middot;&nbsp;<a href="/faq" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">faq</a>&nbsp;&middot;&nbsp;<a href="/help" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">help</a>&nbsp;&middot;&nbsp;<a href="/about" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">about</a>&nbsp;&middot;&nbsp;<a href="/feedback" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">feedback</a>&nbsp;&middot;&nbsp;<a href="/tos" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">terms of service</a>&nbsp;&middot;&nbsp;<a href="/privacypolicy" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">privacy policy</a>
+    include footer
+    mixin footer()

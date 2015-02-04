@@ -1,0 +1,68 @@
+doctype html
+html(lang="en")
+  head
+    - var pageName = "frequently asked questions"
+    include head
+    mixin head()
+  body
+    #wrap
+      nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+        include nav
+        mixin navheader()
+        #nav-collapsible.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            mixin navdefaultlinks("/faq")
+          mixin navloginlogout("/faq")
+      section#mainpage
+        .container
+          .col-md-8.col-md-offset-2(style="margin-bottom:25px;")
+            h3 Frequently Asked Questions
+            p(style="margin-top: 20px").
+              <strong style="color:#fff;font-size: 16px;">What is tubesynch?</strong>
+            p.
+              tubesynch lets people create their own unique channel, add media from a number of sources to their channel playlist, and administer various control and customization over their channel. Video playback is synchronized between all users in the channel, so everyone is watching the same thing at the same time. Along with video, channels have a real-time chat interface where users in the channel can converse with eachother.
+            p(style="margin-top: 20px").
+              <strong style="color:#fff;font-size: 16px;">How are channels managed?</strong>
+            p.
+              Channels are usually managed by the channel owner (user who made the channel) and any other admins or moderators that they have appointed. Owners, admins, and mods may manage a channel by adding/removing content to the playlist, kicking/banning/muting members in chat, and changing the overall look of the channel with custom CSS. Channel rules are largely left up to the channel owner to define and enforce. Channels may also be completely open and allow anyone to contribute to the playlist and perform other actions.
+            p(style="margin-top: 20px").
+              <strong style="color:#fff;font-size: 16px;">How do I register a channel?</strong>
+            p.
+              Registering a channel reserves a unique name where your channel can always be found and makes any customizations you set save automatically, even if your channel is empty. If you're working in an un-registered channel, any changes you make will be deleted when there are no more viewers.
+            p.
+              To register a channel, you need to first be logged into a registered account. If you need to register an account, you can do so <a href="http://tubesynch.com/register" style="color: #E54D4D">here</a>. Once logged in, click the "Account" dropdown at the top of the page, then select "Channels" (or just go <a href="http://tubesynch.com/account/channels" style="color: #E54D4D">here</a>). Register channels by entering a channel name then clicking "Register". Channels that you've registered are displayed on the left. You may create up to 20 channels. 
+            p(style="margin-top: 20px").
+              <strong style="color:#fff;font-size: 16px;">How can my channel be listed higher on the front page?</strong>
+            p.
+              Front page channel listings are sorted by the number of watchers viewing your channel - so be sure to invite friends so you can be listed higher!
+            p(style="margin-top: 20px").
+              <strong style="color:#fff;font-size: 16px;">How do I make my channel private or password protected?</strong>
+            p.
+              Channel owners may add privacy and security to their channel by clicking "Channel Settings" at the top of their channel page, then going to the "Admin Settings" tab. This tab will let you unlist your channel as public and set a password. You may also change the channel title here as well (title shown on the front page if channel is public).
+            p(style="margin-top: 20px").
+              <strong style="color:#fff;font-size: 16px;">How do I add a custom message at the top of my channel page?</strong>
+            p.
+              Administrators can set custom messages with the MOTD (Message of the Day) editor. To access the editor, click "Channel Settings" at the top of the page, click "Edit", then select "MOTD". The MOTD editor accepts normal text and HTML.
+            p(style="margin-top: 20px").
+              <strong style="color:#fff;font-size: 16px;">How do I style my channel with custom colors and backgrounds?</strong>
+            p.
+              Channel admins may change the overall look and feel of the channel by adding custom CSS. Cascading Style Sheets (CSS) is a language that is used to define the look, formatting, and feel of a webpage through colors, images, and sizing. To access your channel's CSS editor, click "Channel Settings" at the top of the channel page, then click the "Edit" tab and select "CSS". This will bring up the CSS editor which allows you to enter custom CSS. The CSS entered here must match the element classes or id's that make up the page by default (you can use browser developer tools or right click > view source to find the exact values). If you're new to CSS, check out this quick <a href="http://www.w3.org/Style/LieBos2e/enter/" target="_blank" style="color: #E54D4D">tutorial</a> to get a basic understanding.
+            p.
+              To get you started, the CSS below can be used to set a custom background image for a channel. Simply copy and paste it into your CSS editor then replace the background image URL with an image of your choosing. You should use a reliable image host like <a href="http://imgur.com" target="_blank" style="color: #E54D4D">Imgur</a> when specifying images in CSS.
+            p.
+              <div style="background-color: #0E0E0E;font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;color: #E25757;border: 2px solid #1F1F1F;padding: 10px;font-weight: bold;font-size: 13px;width: 65%;text-shadow: 1px 1px 1px #000;margin-top: 20px;margin-bottom: 20px;">body {<br />
+              background: url(http://imgur.com/sefgvAe.jpg) no-repeat;<br />
+              background-color: #000;<br />
+              background-size: 100%;<br />
+              }<p />
+              .container {<br />
+              box-shadow: 2px 2px 50px 20px #000;<br />
+              }</div>
+            p(style="margin-top: 20px").
+              <strong style="color:#fff;font-size: 16px;">How can I learn more about the features of tubesynch?</strong>
+            p.
+              We have a detailed <a href="http://tubesynch.com/help" style="color: #E54D4D">Help page</a> that discusses the various features of tubesynch in detail.
+          span.text-muted.credit(style="font-size: 13px;color: #FFF;text-shadow: 1px 1px 1px #000;background: #0C0C0C;padding: 10px;border: 1px solid #000;text-align: right;float: right;margin-top: 10px;margin-bottom: -10px;width: 100%;margin-right: -1px").
+            tubesynch copyright &copy; 2014&nbsp;&nbsp;&nbsp;<a href="/" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">channels</a>&nbsp;&middot;&nbsp;<a href="/search" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">search</a>&nbsp;&middot;&nbsp;<a href="/faq" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">faq</a>&nbsp;&middot;&nbsp;<a href="/help" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">help</a>&nbsp;&middot;&nbsp;<a href="/about" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">about</a>&nbsp;&middot;&nbsp;<a href="/feedback" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">feedback</a>&nbsp;&middot;&nbsp;<a href="/tos" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">terms of service</a>&nbsp;&middot;&nbsp;<a href="/privacypolicy" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">privacy policy</a>
+    include footer
+    mixin footer()

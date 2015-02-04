@@ -1,0 +1,713 @@
+.container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loginform > .form-group {
+    margin-right: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.messagebox > p {
+    margin-top: 20px;
+}
+
+.vertical-spacer {
+    margin-top: 10px;
+}
+
+#userlist {
+    list-style: none outside none;
+    padding: 0;
+}
+
+#messagebuffer {
+    width: auto;
+    border-top-width: 0px;
+}
+
+#userlist {
+    width: 120px;
+    float: left;
+    border-right: 0;
+    font-size: 9pt;
+}
+
+
+#messagebuffer::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 0px;
+    background-color: #000;
+}
+
+#messagebuffer::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#messagebuffer::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+#userlist::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 0px;
+    background-color: #000;
+}
+
+#userlist::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#userlist::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+#messagebuffer, #userlist {
+    height: 329px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 0;
+    background: #030303;
+    padding: 5px;
+}
+
+#chatheader, #currenttitle {
+    border: 1px solid #424242;
+    padding: 5px;
+    background: #0E0E0E;
+}
+
+#chatline, #guestlogin > input, #guestlogin > .input-group-addon {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-width: 0;
+}
+
+.linewrap, .linewrap code {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+#from-url, #from-search {
+    margin-top: 3px;
+}
+
+.clear {
+    clear: both;
+}
+
+.chat-timestamp {
+    font-size: 8pt;
+}
+
+.chat-name {
+    font-weight: bold;
+}
+
+#customembed > .input-group {
+    margin-top: 5px;
+}
+
+.drink {
+    margin: 10px 10px;
+    padding: 10px 0px;
+    border: 2px solid #0000cc;
+}
+
+#drinkcount {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+#chatheader > p, #currenttitle {
+    margin: 0;
+    color: #F0F0F0;
+    white-space: nowrap;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#userlist, #messagebuffer {
+    height: 344px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1px solid #000;
+    padding: 5px;
+    font-size: 13px;
+}
+
+#ytapiplayer {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #000;
+}
+
+#chatwrap, #videowrap {
+    margin-bottom: 0px;
+}
+
+#userpl_list {
+    list-style: none outside none;
+    margin-left: 0;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+/*
+#userpl_list li {
+    display: inline-block;
+    line-height: 22px;
+    width: 100%;
+    clear: both;
+    margin: 2px 0 0 auto;
+    padding: 2px;
+    font-size: 8pt;
+}
+*/
+
+#customembed_wrap {
+    margin: 5px 0;
+}
+
+#playlistmanagerwrap {
+    margin-top: 0px;
+}
+
+#library {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 5px;
+}
+
+#library_search, #queue_next, #ce_queue_next {
+    border-radius: 0;
+}
+
+#plmeta {
+    border: 1px solid #000;
+    padding: 5px;
+    background: #090909;
+    margin-right: 0px;
+    margin-top: 2px;
+}
+
+.videolist {
+    list-style: none outside none;
+    margin-left: 0;
+    max-height: 245px;
+    overflow-y: scroll;
+}
+
+.videolist::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 0px;
+    background-color: #000;
+}
+
+.videolist::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.videolist::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+#plmeta {
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+#pllength {
+    float: right;
+}
+
+.queue_entry {
+    line-height: 22px;
+    padding: 2px;
+    font-size: 8pt;
+    border: 1px solid #000;
+    border-top-width: 0;
+}
+
+.queue_temp {
+    background-image: url(/img/stripe-diagonal.png);
+}
+
+.videolist {
+    padding: 0;
+    margin: 0;
+}
+
+#queue > li:last-child {
+    border: 1px solid #000;
+    margin-bottom: 0;
+}
+
+#userpl_list > li:last-child {
+    border-bottom-width: 1px;
+}
+
+.videolist > li:first-child {
+    border-top-width: 1px;
+}
+
+li.ui-sortable-helper, li.ui-sortable-placeholder + li.queue_entry {
+    border-top-width: 1px;
+}
+
+.qe_btn {
+    height: 20px;
+    font-family: Monospace;
+    padding: 0 5px 0 5px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.qe_buttons, .qe_title {
+    float: left;
+}
+
+.qe_time {
+    float: right;
+    font-family: Monospace;
+}
+
+.qe_clear {
+    clear: both;
+}
+
+.clear {
+    clear: both;
+}
+
+#chatheader .label {
+    height: 100%;
+    margin-left: 2px;
+}
+
+.well hr {
+    border-color: #cccccc;
+}
+
+#csstext, #jstext {
+    font-family: Monospace;
+}
+
+#motdwrap {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-bottom-width: 0;
+    box-shadow: 2px 2px 25px #111;
+}
+
+#optedit, #permedit, #filteredit, #motdedit, #cssedit, #jsedit,
+#banlist, #loginhistory, #channelranks, #chanlog {
+    display: none;
+}
+
+#chanlog_contents {
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-top: 10px;
+}
+
+.server-msg-disconnect {
+    border: 1px solid #ff0000;
+    margin: 5px;
+    padding: 5px;
+    color: #ff0000;
+}
+
+.server-msg-reconnect {
+    border: 1px solid #009900;
+    margin: 5px;
+    padding: 5px;
+    color: #009900;
+}
+
+.queue_sortable li {
+    cursor: row-resize;
+}
+
+.poll-notify {
+    color: #0000aa;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.userlist_item {
+    cursor: pointer;
+}
+
+.userlist_siteadmin {
+    color: #0AFF00 !important;
+    font-weight: bold !important;
+}
+
+.userlist_owner {
+    color: #0000cc!important;
+    font-weight: bold!important;
+}
+
+.userlist_op {
+    color: #00aa00!important;
+}
+
+.userlist_guest {
+    color: #888888!important;
+}
+
+.action {
+    font-style: italic;
+    color: #888888;
+}
+
+.server-whisper {
+    font-style: italic;
+    color: #888888;
+    font-size: 8pt;
+}
+
+.spoiler {
+    color: #000000;
+    background-color: #000000;
+}
+
+.spoiler:hover {
+    color: #ffffff;
+}
+
+.greentext {
+    color: #789922; /* Color value directly from 4chan */
+}
+
+.shout {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+.mono {
+    font-family: Monospace;
+}
+
+.nick-highlight {
+    background-color: #ddffdd;
+}
+
+.nick-hover {
+    background-color: #ffff99;
+}
+
+.timestamp {
+    color: #777575;
+    font-size: 7pt;
+}
+
+.username {
+    color: #FF5A5A;
+}
+
+.profile-box {
+    z-index: 9999;
+    position: fixed;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    padding: 5px;
+    max-width: 200px;
+    max-height: 300px;
+    overflow-y: hidden;
+}
+
+.user-dropdown {
+    z-index: 9999;
+    position: absolute;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    color: #000000;
+    max-width: 200px;
+    padding: 5px;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+}
+
+#togglemotd .glyphicon {
+    font-size: 10pt;
+}
+
+.poll-menu > .btn, .poll-menu > input {
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.poll-menu {
+    margin-top: 10px;
+}
+
+#search_clear {
+    margin-top: 10px;
+}
+
+#qualitywrap {
+    margin-right: 5px;
+}
+
+#guestlogin .input-group-addon {
+    min-width: 120px;
+    border-radius: 0px;
+    background: #973030;
+    text-shadow: 1px 1px 1px #000;
+}
+
+#channeloptions .modal-header {
+    border-bottom: none;
+}
+
+#pollwrap > div {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.option {
+    margin-top: 5px;
+}
+
+.option-selected {
+    font-weight: bold;
+}
+
+.option > button {
+    margin-right: 15px;
+}
+
+.option-selected > button {
+    border-width: 3px !important;
+    margin-right: 10px;
+}
+
+#useroptions .modal-header {
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#useroptions .modal-body {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.qfalert {
+    margin-bottom: 10px;
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+#customembed-content {
+    font-family: Monospace;
+}
+
+#cs-csstext, #cs-jstext, #cs-motdtext {
+    font-family: Monospace;
+}
+
+#cs-csssubmit, #cs-motdsubmit, #cs-jssubmit {
+    margin-top: 10px;
+}
+
+#cs-chatfilters input[type='text'], #cs-chatfilters textarea {
+    font-family: monospace;
+}
+
+#cs-chatfilters-exporttext {
+    margin-top: 5px;
+}
+
+#cs-emotes input[type='text'], #cs-emotes textarea {
+    font-family: monospace;
+}
+
+#cs-emotes-exporttext {
+    margin-top: 5px;
+}
+
+.pagination {
+    margin: 0;
+}
+
+#cs-chanlog-filter {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #0A0A0A;
+    color: #FFF;
+    border: 1px solid #000;
+}
+
+#cs-chanlog-text {
+    max-height: 300px;
+    overflow-y: scroll;
+    font-size: 8pt;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: #0A0A0A;
+    color: #FF6969;
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+
+#cs-chanlog-text::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 0px;
+    background-color: #000;
+}
+
+#cs-chanlog-text::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#cs-chanlog-text::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+#cs-chanlog-filter::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 0px;
+    background-color: #000;
+}
+
+#cs-chanlog-filter::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#cs-chanlog-filter::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+.channel-emote {
+    max-width: 55px;
+    max-height: 55px;
+}
+
+#cs-emotes td:nth-child(3) {
+    max-width: 300px;
+}
+
+#pmbar {
+    position: fixed;
+    bottom: 0;
+    z-index: 10000;
+    min-width: 100%;
+}
+
+body.chatOnly .pm-panel, body.chatOnly .pm-panel-placeholder {
+    margin-left: 0;
+    margin-right: 5px;
+    float: right;
+}
+
+.pm-panel, .pm-panel-placeholder {
+    margin-left: 5px;
+    margin-bottom: 20px;
+    float: left;
+    width: 250px;
+}
+
+.pm-panel {
+    margin-bottom: 0!important;
+    border-radius: 0!important;
+    border-radius: 0!important;
+}
+
+.pm-panel > .panel-heading {
+    cursor: pointer;
+    border-radius: 0!important;
+    border-radius: 0!important;
+    background-color: #111;
+}
+
+.pm-panel > .panel-body {
+    padding: 0;
+}
+
+.pm-panel > .panel-body > .pm-buffer {
+    height: 250px;
+    overflow-y: scroll;
+    background:#000;
+}
+
+.pm-panel > .panel-body > .pm-buffer::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 0px;
+    background-color: #000;
+}
+
+.pm-panel > .panel-body > .pm-buffer::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.pm-panel > .panel-body > .pm-buffer::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+.pm-panel > .panel-body > hr {
+    margin: 0;
+}
+
+.pm-input {
+    margin: 0;
+    width: 100%;
+    border-top-left-radius: 0!important;
+    border-top-right-radius: 0!important;
+    background-color: #111 !important;
+}
+
+.chat-shadow {
+    text-decoration: line-through;
+}
+
+@media screen and (min-width: 768px) {
+    .modal {
+        padding: 30px;
+    }
+
+    .modal-dialog {
+        min-width: 600px!important;
+        max-width: 1200px!important;
+        width: auto!important;
+    }
+}

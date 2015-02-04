@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://tubesynch.com/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://tubesynch.com/help</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tubesynch.com/about</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tubesynch.com/login</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tubesynch.com/register</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tubesynch.com/tos</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tubesynch.com/privacypolicy</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://tubesynch.com/account/passwordreset</loc>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>

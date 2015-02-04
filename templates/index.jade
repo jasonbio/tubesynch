@@ -1,0 +1,336 @@
+doctype html
+html(lang="en_US", prefix="og: http://ogp.me/ns#")
+  head
+    include head
+    mixin head()
+  body
+    #wrap
+      nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+        - var pageName = "index"
+        include nav
+        mixin navheader()
+        #nav-collapsible.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            mixin navdefaultlinks("/")
+          mixin navloginlogout("/")
+      section#mainpage
+        .container(style="background: #363636")
+          .infowrap(style="float:left")
+            .info(style="width: 57%;font-size: 14px;margin-top: 10px;float: left;margin-right: 66px;border-right: 1px solid #242424;")
+              span <strong style="text-shadow: 1px 1px 1px #000;font-size:25px;color:#fff">tube<span style="color:#E54D4D">synch</span> <u>synch</u>ronizes media across the web</strong><p style="width: 89%;margin-top: 10px;" /><span style="font-size:14px;color:#eee">Create public or private channels and share synchronized videos, music and more! Turn your channel into an automated TV station, 24/7 radio station, or a simple hangout!</span>
+              .front-box(style="font-size: 13px;margin-left: 0px;width: 89%;margin-top:0px;color:#BBB;float:left;padding: 10px;height:auto;background: #0F0F0F;border: 1px solid #000;box-shadow: 2px 2px 25px #111")
+                div(style="float:left;margin-bottom: 10px")
+                  span(style="float:left;margin-right:55px")
+                    <img src="/img/youtube.png" />&nbsp;YouTube
+                  span(style="float:left;margin-right:60px")
+                    <img src="/img/dailymotion.png" />&nbsp;Dailymotion
+                  span(style="float:left;margin-right:70px")
+                    <img src="/img/vimeo.png" />&nbsp;Vimeo
+                  span(style="float:left")
+                    <img src="/img/streamup.png" />&nbsp;Streamup</span>
+                div(style="float:left;margin-bottom: 10px")
+                  span(style="float:left;margin-right:36px")
+                    <img src="/img/vaughnlive.png" />&nbsp;Vaughn Live
+                  span(style="float:left;margin-right:79px")
+                    <img src="/img/twitchtv.png" />&nbsp;Twitch.tv
+                  span(style="float:left;margin-right:45px")
+                    <img src="/img/livestream.png" />&nbsp;Livestream
+                  span(style="float:left") 
+                    <img src="/img/ustream.png" />&nbsp;Ustream
+                div(style="float:left")
+                  span(style="float:left;margin-right:75px")
+                    <img src="/img/imgur.png" />&nbsp;Imgur
+                  span(style="float:left;margin-right:57px")
+                    <img src="/img/soundcloud.png" />&nbsp;SoundCloud
+                  span(style="float:left;margin-right:75px")
+                    <img src="/img/hitbox.png" />&nbsp;hitbox
+                  span(style="float:left")
+                    <img src="/img/custom.png" />&nbsp;Custom
+            h3(style="font-weight: bold;margin-top: 10px;text-shadow: 1px 1px 1px #000;color: #fff;") create a channel
+            .col-lg-3.col-md-3(style="margin-top: 0px;width: 37%;margin-bottom:0px;background:#0F0F0F;border: 1px solid #000;box-shadow: 2px 2px 25px #111")
+              input#channelname.form-control(type="text", placeholder="Channel Name (no spaces)", style="margin-top: 4%;width: 80%;float: left;margin-right: 5%;height: 40px;color: #FFF")
+              span <button id="channelnamego" class="btn btn-primary btn-block" style="width: 15%;margin-top: 4%;background-image: -webkit-linear-gradient(#E54D4D, #E54D4D 60%, #E01B1B);background-image: linear-gradient(#E54D4D, #E54D4D 60%, #E01B1B);background-repeat: no-repeat;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E54D4D', endColorstr='#E01B1B', GradientType=0);filter: none;font-weight: bold;text-shadow: 1px 1px 1px #000;">go!</button>
+              p.text-muted(style="margin-top: 10px;font-size: 14px;margin-bottom: 13px;color: #bbb") Remember to register your channel if you want to save your playlist, ranks, and customizations. Unregistered channels will be deleted when no one is left watching. Read the <a href="/help" style="color: #E54D4D">Help</a> page for more info.
+            .col-lg-9.col-md-9(style="padding-right: 0px;padding-left: 0px;width:101%")
+              h3(style="background: rgba(0, 0, 0, 0.54);padding: 10px;color: #FFF;text-shadow: 1px 1px 1px #000;font-weight: bold;margin-right: 10px;margin-top: 2%;border-bottom: 1px solid #000;font-size: 20px;box-shadow: 2px 2px 25px #000;") Active Public Channels
+                <span id="totalspan" style="float: right;font-size: 11px;display: block;margin-top: 6px;margin-right: 35px;width: 105px;">total users online <strong id="totalonline" style="font-size: 15px;color: #E54D4D;text-shadow: 1px 1px #000;display: block;margin-top: -14px;margin-left: 100%;padding-left: 10px;"></strong></span>
+                script(type="text/javascript").
+                  var totalonline = 0;
+              div(style="float: left;background: #0A0A0A;padding: 5px;margin-right: 10px;padding-right: 0px;padding-left: 10px;padding-top: 10px;border: 1px solid #000;box-shadow: 2px 2px 25px #111;position: relative;padding-bottom: 0px;width: 99%;max-width: 99%;")
+                each chan in channels
+                  - var idtype = chan.mediatype2
+                  - var nametest = chan.name
+                  div(style="width: 24%;font-size: 11px;float: left;background: #111;padding: 5px;margin-right: 1%;margin-bottom: 1%;height: 87px;overflow: hidden;border: 1px solid #242222", onmouseover="javascript:this.style.background = '#383838'", onmouseout="javascript:this.style.background = '#111'")
+                    span(style="width:100px;height:76px;float:left;margin-right: 5px;margin-bottom: 5px;position:relative")
+                      if idtype == "vi"
+                        a(href="/r/#{chan.name}", id="#{chan.mediaid2}")
+                      else if idtype == "us"
+                        a(href="/r/#{chan.name}", id="#{chan.mediaid2}")
+                      else if idtype == "su"
+                        if nametest == "StarTrek"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/tzS1qLP.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/streamupdef.png'")]
+                        else if nametest == "MovieTime2"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/W0IglRi.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/streamupdef.png'")]
+                        else if nametest == "AnimeClassics"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/wN8pBgW.png", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/streamupdef.png'")]
+                        else if nametest == "DariaMTV"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/OTxzXFR.png", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/streamupdef.png'")]
+                        else
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="/img/streamupdef.png", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px")]
+                      else if idtype == "gd"
+                        a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="#{chan.mediaid}", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                      else if idtype == "jw"
+                        if nametest == "COPS"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/2wePdAh.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "theoffice"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/2b80qfd.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="/img/undefined.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                      else if idtype == "cu"
+                        if nametest == "TheSimpsons"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/hzz0ClM.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "Futurama247"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/BHRtBXN.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "kingofthehill"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/xw5iHJa.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "south_park"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/x030LYH.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "RobinWilliamsMovies"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/woRl8Lm.gif", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "AnimeClassics"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/GAvXbmP.png", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="/img/undefined.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                      else
+                        if nametest == "Futurama247"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/BHRtBXN.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "TheSimpsons"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/hzz0ClM.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "kingofthehill"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/xw5iHJa.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "south_park"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/x030LYH.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "BobsBurgers"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/ZOgjnrk.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "Bobs_Burger"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/ZOgjnrk.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "Rick_and_Morty"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/OPpWY0a.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else if nametest == "americandad"
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="http://i.imgur.com/LglSmbn.jpg", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                        else
+                          a(href="/r/#{chan.name}", id="#{chan.mediaid2}") #[img(src="#{chan.mediaid}", style="float: left;width: 100px;border: 2px solid #000;position:relative;z-index: 2;background: #000;height: 76px", onerror="javascript:this.src = '/img/undefined.jpg'")]
+                      span(style="width:100%;height:17px;background:rgba(0,0,0,0.75);position:absolute;bottom: 0;left:0;z-index:2")
+                        span(style="color: #fff;font-size:7.5px;position:relative;z-index: 2;margin-left:3px;white-space:nowrap")
+                          - var chname = chan.name
+                          - var chname = chname.toLowerCase()
+                          a(href="/r/#{chan.name}", style="font-family:MS Sans Serif;font-size: 9px;color: #ccc") #{chname.substr(0, 17) + ''}
+                        a(href="/r/#{chan.name}") #[img(src="#{chan.mediatype}", style="float:right;width: 10px;margin-right: 4px;margin-top: 3px")]
+                    span(style="display:block;background: #0C0C0C;height: 101%;border: 1px solid #000")
+                      - var ptitle = chan.pagetitle
+                      a(href="/r/#{chan.name}", style="color: #E54D4D;font-weight: bold;font-size: 11.5px;position:relative;z-index: 2") #{ptitle.substr(0, 26) + ''}
+                      br
+                      span(style="color:#fff;font-size: 10px") <img src="/img/eye.png" style="width: 12px;float: left;margin-top: 4px" /> &nbsp; <span id="usernum" style="font-weight:bold">#{chan.usercount}</span> watching
+                      script(type="text/javascript").
+                        totalonline = totalonline + #{chan.usercount};
+                      br
+                      - var mtitle = chan.mediatitle
+                      span(style="color: #AAAAAA;word-wrap: break-word;width: 58%;display: block;float: right") #{mtitle.substr(0, 40) + '...'}
+                  if idtype == "vi"
+                    script(src="/js/jquery.js")
+                    script(type="text/javascript").
+                      id2 = "#{chan.mediaid2}";
+                      $.ajax({
+                        type:'GET',
+                        url: 'http://vimeo.com/api/v2/video/'+id2+'.json',
+                        jsonp: 'callback',
+                        dataType: 'jsonp',
+                        success: function(data) {
+                          var img     = $('<img>');
+                          var styles  = {
+                                          float: "left",
+                                          width: "100px",
+                                          border: "2px solid #000",
+                                          position: "relative",
+                                          zIndex: "2"
+                                        };
+                          img.attr('src', data[0].thumbnail_medium);
+                          img.css(styles);
+                          img.appendTo('#'+data[0].id);
+                        }
+                      });
+                  if idtype == "us"
+                    script(src="/js/jquery.js")
+                    script(type="text/javascript").
+                      var id3 = "#{chan.mediaid2}";
+                      $.ajax({
+                        type:'GET',
+                        url: 'https://api.ustream.tv/channels/'+id3+'.json',
+                        jsonp: 'callback',
+                        dataType: 'json',
+                        success: function(data) {
+                          var img2     = $('<img>');
+                          var styles2  = {
+                                          float: "left",
+                                          width: "100px",
+                                          border: "2px solid #000",
+                                          position: "relative",
+                                          zIndex: "2"
+                                        };
+                          img2.attr('src', data.channel.thumbnail.live);
+                          img2.css(styles2);
+                          img2.appendTo('#'+id3);
+                        }
+                      });
+            span.text-muted.credit(style="font-size: 13px;color: #FFF;text-shadow: 1px 1px 1px #000;background: #0C0C0C;padding: 10px;border: 1px solid #000;text-align: right;box-shadow: 2px 2px 25px #111;float: right;margin-top: 10px;margin-bottom: -10px;width: 100%;margin-right: -1px").
+              tubesynch copyright &copy; 2014&nbsp;&nbsp;&nbsp;<a href="/" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">channels</a>&nbsp;&middot;&nbsp;<a href="/search" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">search</a>&nbsp;&middot;&nbsp;<a href="/faq" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">faq</a>&nbsp;&middot;&nbsp;<a href="/help" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">help</a>&nbsp;&middot;&nbsp;<a href="/about" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">about</a>&nbsp;&middot;&nbsp;<a href="/feedback" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">feedback</a>&nbsp;&middot;&nbsp;<a href="/tos" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">terms of service</a>&nbsp;&middot;&nbsp;<a href="/privacypolicy" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">privacy policy</a>
+    if loggedIn
+      null
+    else if !registered
+      #register.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+        .modal-dialog
+          .modal-content
+            if registerError
+              .alert.alert-danger.messagebox.center
+                strong Registration Failed
+                p= registerError
+            .modal-header
+              button.close(data-dismiss="modal", aria-hidden="true") &times;
+              h4 Register
+            .modal-body
+              form(role="form", action="http://tubesynch.com/register", method="post", onsubmit="return verify()")
+                input(type="hidden", name="redirect", value=redirect)
+                .form-group
+                  label.control-label(for="username") Username
+                  input#username.form-control(type="text", name="name")
+                .form-group
+                  label.control-label(for="password") Password
+                  input#password.form-control(type="password", name="password", onkeyup="checkPasswords()")
+                .form-group
+                  label.control-label(for="password_confirm") Confirm Password
+                  input#password_confirm.form-control(type="password", onkeyup="checkPasswords()")
+                .form-group
+                  label.control-label(for="email") Email (optional)
+                  input#email.form-control(type="email", name="email")
+                  p Providing an email address allows you to recover your account via email if you forget your password.
+                button#registerbtn.btn.btn-success.btn-block(type="submit") Register
+            .modal-footer
+              button.btn.btn-default(type="button", data-dismiss="modal") Close
+      script(src="/js/jquery.js")
+      script(type="text/javascript").
+        function verify() {
+          var valid = checkUsername();
+          valid = checkPasswords() && valid;
+          return valid;
+        }
+        function checkUsername() {
+          var name = $("#username", ".modal-content").val();
+          $("#usernameerror", ".modal-content").remove();
+          if (name === "") {
+            $("#username", ".modal-content").parent().addClass("has-error");
+            $("<p/>").addClass("text-danger")
+              .attr("id", "usernameerror")
+              .text("Username must not be empty")
+              .insertAfter($("#username", ".modal-content"));
+            return false;
+          } else if (!(/^[-\w\u00c0-\u00ff]{1,20}$/).test(name)) {
+            $("#username", ".modal-content").parent().addClass("has-error");
+            $("<p/>").addClass("text-danger")
+              .attr("id", "usernameerror")
+              .text("Username must consist of 1-20 characters a-Z, A-Z, 0-9 " +
+                    ", -, or _.")
+              .insertAfter($("#username", ".modal-content"));
+            return false;
+          } else {
+            $("#username", ".modal-content").parent().removeClass("has-error")
+              .addClass("has-success");
+          }
+        }
+        function checkPasswords() {
+          var pw = $("#password", ".modal-content").val();
+          var pwc = $("#password_confirm", ".modal-content").val();
+          $("#passwordempty").remove();
+          $("#passwordmismatch").remove();
+          if (pw === "") {
+            $("#password", ".modal-content").parent().addClass("has-error");
+            $("<p/>").addClass("text-danger")
+              .attr("id", "passwordempty")
+              .text("Password must not be empty")
+              .insertAfter($("#password", ".modal-content"));
+            return false;
+          } else {
+            $("#password", ".modal-content").parent().removeClass("has-error")
+              .addClass("has-success");
+            if (pw !== pwc) {
+              $("#password_confirm", ".modal-content").parent().addClass("has-error");
+              $("<p/>").addClass("text-danger")
+                .attr("id", "passwordmismatch")
+                .text("Passwords do not match")
+                .insertAfter($("#password_confirm", ".modal-content"));
+              return false;
+            } else {
+              $("#password_confirm", ".modal-content").parent().removeClass("has-error")
+                .addClass("has-success");
+            }
+          }
+        }
+    else
+      #register.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+       .modal-dialog
+          .modal-content
+            .alert.alert-success.messagebox.center
+              strong Registration Successful
+              p Thanks for registering, #{registerName}!  Now you can <a href="/login">Login</a> to use your account.
+    include footer
+    mixin footer()
+    script(src="/js/util.js")
+    script(type="text/javascript").
+      $("#channelname").keydown(function (ev) {
+        if (ev.keyCode === 13) {
+          var cname = $("#channelname").val();
+          if (cname === "") {
+            $("#channelname").parent().addClass("has-error");
+            $("<p/>").addClass("text-danger")
+              .attr("id", "cnameerror")
+              .css("position", "absolute")
+              .css("font-size", "11px")
+              .text("Channel name is empty")
+              .insertAfter($("#channelname"));
+          } else if (!(/^[-\w\u00c0-\u00ff]{1,25}$/).test(cname)) {
+            $("#channelname").parent().addClass("has-error");
+            $("<p/>").addClass("text-danger")
+              .attr("id", "cnameerror")
+              .css("position", "absolute")
+              .css("font-size", "11px")
+              .text("Channel name must have 1-25 characters and cannot contain spaces or symbols")
+              .insertAfter($("#channelname"));
+          } else {
+            location.href = "/r/" + $("#channelname").val();
+          }
+        }
+      });
+      $("#channelnamego").click(function () {
+        var cname = $("#channelname").val();
+        if (cname === "") {
+          $("#channelname").parent().addClass("has-error");
+          $("<p/>").addClass("text-danger")
+            .attr("id", "cnameerror")
+            .css("position", "absolute")
+            .css("font-size", "11px")
+            .text("Channel name is empty")
+            .insertAfter($("#channelname"));
+        } else if (!(/^[-\w\u00c0-\u00ff]{1,25}$/).test(cname)) {
+          $("#channelname").parent().addClass("has-error");
+          $("<p/>").addClass("text-danger")
+            .attr("id", "cnameerror")
+            .css("position", "absolute")
+            .css("font-size", "11px")
+            .text("Channel name must have 1-25 characters and cannot contain spaces or symbols")
+            .insertAfter($("#channelname"));
+        } else {
+          location.href = "/r/" + $("#channelname").val();
+        }
+      });
+      $(window).load(function() {
+        $("#totalonline").text(totalonline);
+      });

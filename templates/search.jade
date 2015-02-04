@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+  head
+    - var pageName = "search"
+    include head
+    mixin head()
+  body
+    #wrap
+      nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+        include nav
+        mixin navheader()
+        #nav-collapsible.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            mixin navdefaultlinks("/search")
+          mixin navloginlogout("/search")
+      section#mainpage
+        .container
+          .row
+            #channel-lookup.col-md-12
+              h3(style="font-weight: bold;margin-top: 10px;text-shadow: 1px 1px 1px #000;color: #fff;") search channels
+              .col-lg-3.col-md-3(style="margin-top: 0px;width: 50%;margin-bottom: 20px;background: #0C0C0C;border: 1px solid #1A1A1A;")
+                form.form-inline(action="javascript:void(0)", role="form")
+                  .form-group(style="width: 100%")
+                    input#clookup-value.form-control(type="text", placeholder="search term (single keywords work best)", style="margin-top: 3%;width: 71%;float: left;margin-right: 5%;height: 40px;color: #FFF")
+                  span <button id="clookup-submit" class="btn btn-primary btn-block" style="width: 25%;background-image: -webkit-linear-gradient(#E54D4D, #E54D4D 60%, #E01B1B);background-image: linear-gradient(#E54D4D, #E54D4D 60%, #E01B1B);background-repeat: no-repeat;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E54D4D', endColorstr='#E01B1B', GradientType=0);filter: none;font-weight: bold;text-shadow: 1px 1px 1px #000;position: absolute;top: 16px;right: 16px;">Search</button>
+                  p.text-muted(style="margin-top: 10px;font-size: 14px;margin-bottom: 13px;color: #bbb") Search all registered channels on tubesynch. Results will return both active and inactive channels.
+              table.table.table-bordered.table-striped(style="margin-top: 20px")
+                thead
+                  tr
+                    th.sort(data-key="name") Search Results
+          span.text-muted.credit(style="font-size: 13px;color: #FFF;text-shadow: 1px 1px 1px #000;background: #0C0C0C;padding: 10px;border: 1px solid #000;text-align: right;float: right;margin-top: 10px;margin-bottom: -10px;width: 100%;margin-right: -1px").
+            tubesynch copyright &copy; 2014&nbsp;&nbsp;&nbsp;<a href="/" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">channels</a>&nbsp;&middot;&nbsp;<a href="/search" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">search</a>&nbsp;&middot;&nbsp;<a href="/faq" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">faq</a>&nbsp;&middot;&nbsp;<a href="/help" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">help</a>&nbsp;&middot;&nbsp;<a href="/about" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">about</a>&nbsp;&middot;&nbsp;<a href="/feedback" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">feedback</a>&nbsp;&middot;&nbsp;<a href="/tos" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">terms of service</a>&nbsp;&middot;&nbsp;<a href="/privacypolicy" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">privacy policy</a>
+    include footer
+    mixin footer()
+    script(src=sioSource)
+    script(src="/sioconfig")
+    script(src="/js/util.js")
+    script(src="/js/paginator.js")
+    script(src="/js/chart.js")
+    script(src="/js/search.js")

@@ -1,0 +1,28 @@
+#acp-logview .input-group-btn > button, #acp-logview .input-group > input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#acp-log {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#acp-eventlog-text {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#acp-eventlog-refresh {
+    margin-top: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+}
