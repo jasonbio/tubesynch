@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2.6
 
 import re
 import sys

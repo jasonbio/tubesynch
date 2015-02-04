@@ -1,0 +1,219 @@
+doctype html
+html(lang="en")
+  head
+    - var pageName = "help"
+    include head
+    mixin head()
+  body
+    #wrap
+      nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+        include nav
+        mixin navheader()
+        #nav-collapsible.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            mixin navdefaultlinks("/help")
+          mixin navloginlogout("/help")
+      section#mainpage
+        .container
+          .col-md-12
+            h1(style="font-size: 30px;font-weight: bold;color: #fff") Help - User Guide
+            h3(style="color: #fff") Channel UI
+            p.
+              Each channel page consists of several basic sections: the chat box, the video, the playlist controls, the playlist, and the poll area.
+            p.
+              <strong style="color:#fff">Chat Box</strong>
+            p.
+              The chat box allows you to communicate with the other users in the channel. At the top, there is a bar with the number of connected users. Clicking this will hide the userlist to expand the message area.
+            p.
+              The userlist consists of all the names of users in the channel who are logged in. Right click a name to pop up available actions for that user. If you are not a moderator, you can ignore the user or send them a private message. Moderators can use this menu to kick, ban, and perform other moderating tasks.
+            p.
+              At the bottom, there is a chat input bar. If you are not logged in, it will prompt you to choose a guest name. After logging in, simply type your message in the input box and press enter to send it. Certain types of messages will be interpreted as commands, which will be covered below.
+            p.
+              <strong style="color:#fff">Playlist Controls</strong>
+            p.
+              Below the video, there are 2 strips of buttons for playlist and video control. Depending on your permission level, certain buttons may be disabled. Hover over each button to see what it does.
+            p.
+              On the left are playlist controls:
+            ul
+              li Search for a video: Search for a video title in the channel library or on YouTube
+              li Add from URL: Paste a supported media link and add it to the playlist
+              li Manage playlists: Save and load playlists from your user account
+              li Clear playlist: Remove all videos from the playlist
+              li Shuffle playlist: Randomize the order of the playlist and start playing from the top
+              li Lock/Unlock playlist: Toggle the locked status of the playlist. Unlocked state is useful for allowing non-moderators to add videos to the playlist. Exact open/locked permissions can be configured under the channel settings permissions editor
+            p.
+              On the right are video controls:
+            ul
+              li Reload the video player: Remove the current video and load it again (useful for dealing with playback issues)
+              li Retrieve playlist links: Get a comma-separated list of all the videos in the playlist
+              li Voteskip: Vote to skip the currently playing video. If enough votes are counted, the next item in the playlist will immediately begin playing
+            p. 
+              <strong style="color:#fff">Playlist</strong>
+            p.
+              The playlist is a list of videos that will be played in order from top to bottom. Each entry will display the title and duration of the video. Each item has a few buttons to perform certain actions, the location of which depends on your user preferences. Click and drag playlist items to rearrange the order.
+            p.
+              Item actions:
+            ul
+              li Play: Immediately jump to this playlist item and begin playing
+              li Queue Next: Move this video to the next slot after the currently playing video
+              li Make Temporary/Permanent: Toggle whether this video will be automatically removed from the playlist after playing once
+              li Delete: Remove this item from the playlist
+            p.
+              <strong style="color:#fff">Poll Area</strong>
+            p.
+              The poll area allows moderators to conduct polls. When a moderator opens a poll, a poll box will be added to the poll area. Each option in the poll has a button next to it for you to select that option. Each IP address can only vote once, and your vote is cleared when you leave the page.
+            p.
+              The buttons next to each option will display the number of votes for that option. If it displays "?", then the poll opener has elected to hide the poll results until the poll is over.
+            h3(style="color: #fff") Channel Management
+            p.
+              You must be logged in to your account to manage your channels.
+            p.
+              <strong style="color:#fff">Registering</strong>
+            p.
+              Go to Account -> Channels. On the right column, enter the desired channel name and click "Register". If that channel is not already registered to another account, it will be created and registered to your name.
+            p.
+              <strong style="color:#fff">Deleting</strong>
+            p.
+              Go to Account -> Channels. The left column lists all channels registered to your name. Click the "Delete" button to unregister a channel. This will permanently clear all database information (ranks, library, bans), and state information (playlist, configuration, MOTD, filters, etc) and is not reversible. You will be asked to confirm your deletion.
+            p.
+              <strong style="color:#fff">Channel Settings</strong>
+            p.
+              From your channel page (/r/channelname), users with moderator or higher rank will see a "Channel Settings" button on the top navigation bar. This opens a dialog which allows you to manage various aspects of your channel, explained below.
+            p.
+              <strong style="color:#fff">General Settings</strong>
+            ul
+              li Convert URLs in chat to links: If enabled, URLs entered into chat (e.g. http://google.com) will be converted to clickable hyperlinks.
+              li Allow voteskip: If enabled, users may click the voteskip button to indicate a preference to skip the currently playing video.
+              li Voteskip ratio: The proportion of votes from non-AFK users required to skip the current video. The number of votes required is calculated from the voteskip ratio multiplied by the number of non-AFK users.
+              li Max video length: Specify the maximum duration of a playlist item. Set this to 00:00:00 to allow unlimited length.
+              li Auto-AFK Delay: After this many seconds of a user not chatting or using the voteskip button, they will be automatically marked as AFK.
+              li Throttle chat: Enables a flood filter that will limit how quickly a user can send chat messages.
+              li Number of messages allowed before throttling: When the chat throttle is active, the number of messages a user can send with no time delay before the flood filter engages.
+              li Number of messages allowed per second: After the above limit is exceeded, only this many messages are allowed per second. Additional messages are ignored.
+            p.
+              <strong style="color:#fff">Admin Settings</strong>
+            ul
+              li Channel title: The title displayed on the front page (if channel is listed publicly) and on the browser window.
+              li Password: An optional password required for non-moderators to enter the room. Leave blank to disable.
+              li List channel publicly: When enabled, the channel will show on the front page if there are 1 or more people watching.
+            p.
+              <strong style="color:#fff">Edit > Chat Censors</strong>
+            p.
+              Chat censors provide a way for certain chat messages to be recognized and changed (censored) before displaying. For example, it could be used to censor curse words to strings of asterisks.
+            p.
+              <strong style="color:#fff">Adding a new censor</strong>
+            ul
+              li Censor name: A unique name to identify the censor, for informational purposes only.
+              li Word to censor: The word you want to censor. Multiple words can be separated by the vertical bar character. For example: word1|word2|word3
+              li Replace with: Whatever you want the censor to be replaced with. Leave this blank to simply remove the word altogether.
+            p.
+              <strong style="color:#fff">Managing existing censors</strong>
+            p.
+              Censors will be applied in the order they are listed. You can click and drag individual censors to rearrange them. The "Active" checkbox allows you to easily enable/disable individual censors. Under the "Control" column, the left button with a list icon opens an editor for that censor. The red button with a trash icon will delete the censor.
+            p.
+              The "Filter Links" checkbox controls whether this censor will be applied to links in chat.
+            p.
+              <strong style="color:#fff">Edit > Emotes</strong>
+            p.
+              Channel emotes provide an easy way to replace certain words in chat with an image. Each image will be displayed at a maximum of 200px by 200px, although smaller images look better. Transparent (PNG) images are also preferred so they blend in with the background.
+            p.
+              To add an emote, enter a trigger and an offsite URL where the image is hosted. It's recommended to make your trigger different than just a single word to avoid accidental usage. For example: =arnold= instead of just arnold. Use a reliable image host such as Imgur for your emotes to ensure availability.
+            p.
+              <strong style="color:#fff">Edit > MOTD</strong>
+            p.
+              The MOTD (Message of the Day) is a block at the top of your channel where you can display text/HTML. Popular uses of this include: header images, rules, emote lists, or important announcements.
+            p.
+              <strong style="color:#fff">Edit > CSS</strong>
+            p.
+              The CSS editor allows you to add up to 20,000 characters of inline CSS. Use this to apply custom styles or colors to your channel.
+            p.
+              <strong style="color:#fff">Edit > Permissions</strong>
+            p.
+              The permissions editor provides a way for you to configure what rank is required to carry out certain actions. Each permission option has a dropdown menu for selecting the minimum rank required.
+            p.
+              When the playlist is unlocked (the button below the video is green with a checkmark), the "Open Playlist Permissions" will take precedence over the permissions under "General Playlist Permissions".
+            p.
+              <strong style="color:#fff">Edit > Ranks</strong>
+            p.
+              This menu allows you to manage the user ranks of the channel. To assign a rank, the user must have a registered account. To assign a rank, enter a username in the text field, then click the button of the rank you wish to assign. Moderators have chat moderation permissions by default (unless permissions have been edited). Channel admins have elevated permissions and can assign/remove moderators. Channel owners are equivalent to admins except they can also assign/remove admins and owners. Founders have unrestricted permissions and can assign/remove any rank.
+            p.
+              Use the edit dropdown to change or remove a user's rank. This dropdown will be disabled for users that have higher rank than you.
+            p.
+              <strong style="color:#fff">Bans</strong>
+            p.
+              The bans tab shows a table of ban entries for the channel. Each entry consists of a name, the name of the moderator who added the ban, and optionally a note on why the ban was added. Hover your mouse over a row to reveal the ban reason.
+            p.
+              <strong style="color:#fff">Logs</strong>
+            p.
+              The logs tab allows you to see chat history as well as moderation actions, playlist changes, and other data about your channel. This is useful for debugging problems with the site as well as keeping ranked users accountable for their actions.
+            h3(style="color: #fff") User Settings
+            p.
+              The "Options" button at the top of the page will open a dialog that allows you to configure various settings that are unique to you. You must click save at the bottom of each tab for changes to take effect.
+            p.
+              <strong style="color:#fff">General</strong>
+            p.
+              The general tab allows you to change the layout of the channel page. By default this is set to compact, however you may change it to full if you wish for the video and chat to take up the whole page. (Note: may require a page refresh after saving). Check the Ignore Channel CSS button if you don't want to see any CSS customizations a channel may have made.
+            p.
+              <strong style="color:#fff">Playback</strong>
+            p.
+              These options are reserved for advanced users. The default options here should be fine as is.
+            p.
+              <strong style="color:#fff">Chat</strong>
+            p.
+              These options will let you customize your chat experience. You'll be able to set timestamps, custom userlist sorting, and notifications.
+            p.
+              <strong style="color:#fff">Moderator</strong>
+            p.
+              These options are only available if you have a rank of moderator or higher in a channel. They allow you to customize user options based on channel management. Showing shadowmuted messages will allow you to see messages from users that have been shadowmuted. Their messages will be dimmed with a strikethrough.
+            h3(style="color: #fff") Chat Commands
+            p.
+              The chat accepts various commands that extend its functionality. Some commands also have the ability to be called by right-clicking a username in the chat userlist.
+            p.
+              <strong style="color:#fff">Standard Commands</strong>
+            ul
+              li /me &lt;message&gt; - Sends a message as an action.
+              li /sp &lt;message&gt; - Hides a message in a spoiler box that must be hovered over to read.
+              li /afk - Manually toggles your AFK status.
+            p.
+              <strong style="color:#fff">Moderator Commands</strong>
+            ul
+              li /say &lt;message&gt; - Sends a message in big red text.
+              li /poll &lt;title&gt;,&lt;option1&gt;,&lt;option2&gt;,... - Opens a new poll (this is from before the New Poll button was added).
+              li /hpoll &lt;title&gt;,&lt;option1>,&lt;option2>,... - Same as above, but hides poll results.
+              li /mute &lt;user&gt; - Mutes a user from sending chat messages.
+              li /smute &lt;user&gt; - Shadow mutes a user. They will still receive their own chat messages, but nobody else will and they will not appear muted except to moderators.
+              li /unmute &lt;user&gt; - Unmutes a user. This will unmute both muted and smuted users.
+              li /kick &lt;user&gt; [&lt;reason&gt;] - Kicks a user, optionally providing a kick reason
+              li /kickanons - Kicks all anonymous users from the channel
+              li /ban &lt;user&gt; [&lt;reason&gt;] - Bans a user by name, optionall providing a ban reason
+              li /ipban &lt;user&gt; [&lt;reason&gt;] - Bans a user and all IP addresses they've used in the past month, optionally providing a ban reason.
+              li /ipban &lt;user&gt; range [&lt;reason&gt;] - Bans an IP range (/24 block for IPv4 or /64 block for IPv6)
+              li /ipban &lt;user> wrange [&lt;reason&gt;] - Bans a wider IP range (/16 block for IPv4, /48 block for IPv6)
+              li /clear - Clears the chat buffer.
+              li /clean &lt;user&gt; - Removes all playlist entries from the given user.
+              li /cleantitle &lt;title&gt; - Removes all playlist entries that match the given title.
+              li /d &lt;message&gt; - Calls a drink with the given message
+              li /d# [&lt;message&gt;] - Calls # drinks, optionally with a message. # can be positive or negative
+            h3(style="color: #fff") Supported Media Sources
+            p.
+              Replace the id, stream, address, etc. with your own
+            ul
+              li <strong style="color:#fff">YouTube</strong> - http://youtube.com/watch?v=(id) or http://youtube.com/playlist?list=<span style="font-weight:bold;color: #E54D4D;">id</span>
+              li <strong style="color:#fff">Google Docs Video</strong> - http://docs.google.com/file/d/<span style="font-weight:bold;color: #E54D4D;">id</span>/edit - Only works with certain files (not reliable)
+              li <strong style="color:#fff">Vimeo</strong> - http://vimeo.com/<span style="font-weight:bold;color: #E54D4D;">videoid</span>
+              li <strong style="color:#fff">Soundcloud</strong> - http://soundcloud.com/<span style="font-weight:bold;color: #E54D4D;">songname</span>
+              li <strong style="color:#fff">Dailymotion</strong> - http://dailymotion.com/video/<span style="font-weight:bold;color: #E54D4D;">id</span>
+              li <strong style="color:#fff">Twitch.tv</strong> - http://twitch.tv/<span style="font-weight:bold;color: #E54D4D;">stream</span>
+              li <strong style="color:#fff">VaughnLive.tv</strong> - http://vaughnlive.tv/<span style="font-weight:bold;color: #E54D4D;">stream</span>
+              li <strong style="color:#fff">Streamup</strong> - https://streamup.com/<span style="font-weight:bold;color: #E54D4D;">stream</span>
+              li <strong style="color:#fff">hitbox</strong> - http://hitbox.tv/<span style="font-weight:bold;color: #E54D4D;">stream</span>
+              li <strong style="color:#fff">Livestream</strong> - http://livestream.com/<span style="font-weight:bold;color: #E54D4D;">stream</span>
+              li <strong style="color:#fff">Ustream</strong> - http://ustream.tv/<span style="font-weight:bold;color: #E54D4D;">stream</span>
+              li <strong style="color:#fff">RTMP</strong> - rtmp://<span style="font-weight:bold;color: #E54D4D;">address</span>/ - Requires crossdomain restrictions to be off
+              li <strong style="color:#fff">JW Player</strong> - jw:<span style="font-weight:bold;color: #E54D4D;">address</span> - Does not work with RTMP based URLs
+              li <strong style="color:#fff">Imgur</strong> - http://imgur.com/a/<span style="font-weight:bold;color: #E54D4D;">id</span>
+
+          span.text-muted.credit(style="font-size: 13px;color: #FFF;text-shadow: 1px 1px 1px #000;background: #0C0C0C;padding: 10px;border: 1px solid #000;text-align: right;float: right;margin-top: 10px;margin-bottom: -10px;width: 100%;margin-right: -1px").
+            tubesynch copyright &copy; 2014&nbsp;&nbsp;&nbsp;<a href="/" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">channels</a>&nbsp;&middot;&nbsp;<a href="/search" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">search</a>&nbsp;&middot;&nbsp;<a href="/faq" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">faq</a>&nbsp;&middot;&nbsp;<a href="/help" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">help</a>&nbsp;&middot;&nbsp;<a href="/about" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">about</a>&nbsp;&middot;&nbsp;<a href="/feedback" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">feedback</a>&nbsp;&middot;&nbsp;<a href="/tos" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">terms of service</a>&nbsp;&middot;&nbsp;<a href="/privacypolicy" style="color: #E54D4D;text-shadow: 1px 1px 1px #000">privacy policy</a>
+    include footer
+    mixin footer()

@@ -1,0 +1,27 @@
+mixin head()
+  meta(charset="utf-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  meta(name="description", content="tubesynch synchronizes media across the web. Create public or private channels and share synchronized videos, music and more! Turn your channel into an automated TV station, 24/7 radio station, or a simple hangout!")
+  meta(property="og:url", content="http://tubesynch.com")
+  meta(property="og:type", content="website")
+  meta(property="og:title", content="tubesynch | never watch videos alone again")
+  meta(property="og:image", content="http://tubesynch.com/img/icon.jpg")
+  meta(property="og:site_name", content="tubesynch")
+  if pageName
+    title= "tubesynch | " + pageName
+  else
+    title= "tubesynch | never watch videos alone again"
+  link(rel="image_src", href="http://tubesynch.com/img/icon.jpg")
+  link(href="/css/bootstrap.css", rel="stylesheet")
+  //link(href="/css/bootstrap-theme.min.css", rel="stylesheet")
+  link(href="/css/sticky-footer-navbar.css", rel="stylesheet")
+  link(href="/css/cytube.css", rel="stylesheet")
+  link(id="usertheme", href="/css/themes/slate.css", rel="stylesheet")
+  link(href="/css/tipsy.min.css", rel="stylesheet")
+  link(rel="shortcut icon", href="/img/favicon.png", type="image/vnd.microsoft.icon")
+  script(src="/js/theme.js")
+  script(src="/js/analytics.js")
+  //[if lt IE 9]
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  //[endif]

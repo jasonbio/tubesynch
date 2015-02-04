@@ -1,0 +1,84 @@
+- var links = { "/": "Channels", "/search": "Search", "/faq": "FAQ", "/help": "Help" }
+
+mixin navlink(page, title, active)
+  if active
+    li.active
+      a(href=page)= title
+  else
+    li
+      a(href=page)= title
+
+mixin navheader()
+  .navbar-header(style="margin-left:0px")
+    button.navbar-toggle(type="button", data-toggle="collapse", data-target="#nav-collapsible")
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand(href="/")
+      img(src="/img/tubesynch.png", style="width:160px")
+
+mixin navdefaultlinks(page)
+  each t, p in links
+    if p == page
+      mixin navlink(p, t, true)
+    else
+      mixin navlink(p, t, false)
+  li.dropdown
+    a.dropdown-toggle(href="#", data-toggle="dropdown") Account
+      b.caret
+    ul.dropdown-menu(style="background: #1D1D1D;border: 1px solid #363636;border-top-width: 0;border-radius: 0")
+      if loggedIn
+        li: a(href="/logout?redirect=#{page}") Logout
+        li.divider
+        li: a(href="/account/channels") Channels
+        li: a(href="/account/profile") Profile
+        li: a(href="/account/edit") Change Password/Email
+      else
+        li: a(href="/login") Login
+        li: a(href="/register") Register
+
+mixin navloginlogout(redirect)
+  if loggedIn
+    mixin navlogoutform(redirect)
+  else
+    mixin navloginform(redirect)
+
+mixin navloginform(redirect)
+  .visible-md.visible-lg
+    if loginDomain == null
+      - loginDomain = ""
+    span(style="display:block;margin-top:6px;margin-right: 6px;float:right")
+      a(href="http://www.facebook.com/pages/tubesynch/1422015691412181", target="_blank")
+        img(src="/img/facebook.png", style="border:0;margin-right:6px")
+      a(href="http://twitter.com/tubesynch", target="_blank")
+        img(src="/img/twitter.png", style="border:0")
+    form#loginform.navbar-form.navbar-right(action="#{loginDomain}/login", method="post")
+      input(type="hidden", name="redirect", value=redirect)
+      .form-group
+        input#username.form-control(type="text", name="name", placeholder="Username")
+      .form-group
+        input#password.form-control(type="password", name="password", placeholder="Password")
+      button#login.btn.btn-default(type="submit") Login
+      if pageName == "index"
+        a(href="#", onclick="$('#register').modal();", style="margin-left: 10px") Register
+      else if pageName == "channel"
+        a(href="#", onclick="$('#register').modal();", style="margin-left: 10px") Register
+      else
+        a(href="/register", style="margin-left: 10px") Register
+
+mixin navlogoutform(redirect)
+  if loginDomain == null
+    - loginDomain = ""
+  if redirect
+    - url = "logout?redirect=" + redirect
+  else
+    - url = "logout"
+  span(style="display:block;margin-top:10px;margin-right: 6px;float:right")
+    a(href="http://www.facebook.com/pages/tubesynch/1422015691412181", target="_blank")
+      img(src="/img/facebook.png", style="border:0;margin-right:6px")
+    a(href="http://twitter.com/tubesynch", target="_blank")
+      img(src="/img/twitter.png", style="border:0")
+  p#logoutform.navbar-text.pull-right
+    span#welcome Welcome, #{loginName}
+    span &nbsp;&middot;&nbsp;
+    a#logout.navbar-link(href="#{loginDomain}/#{url}", style="font-weight:bold") Logout

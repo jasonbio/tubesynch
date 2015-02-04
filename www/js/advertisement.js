@@ -1,0 +1,1 @@
+document.write('<div id="tester">this is not an actual advertisement, this is just testing for adblock or not. being a little paranoid, eh? :p</div>');

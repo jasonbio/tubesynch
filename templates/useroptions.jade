@@ -1,0 +1,110 @@
+mixin lcheckbox(id, label)
+  .form-group
+    label.control-label.col-sm-4(for=id)= label
+    .col-sm-8
+      .checkbox
+        input(type="checkbox", id=id)
+
+mixin rcheckbox(id, label)
+  .form-group
+    .col-sm-8.col-sm-offset-4
+      .checkbox
+        label.control-label(for=id)= label
+          input(type="checkbox", id=id)
+
+mixin textbox(id, label, placeholder)
+  .form-group
+    label.control-label.col-sm-4(for=id)= label
+    .col-sm-8
+      if placeholder
+        input.form-control(id=id, type="text", placeholder=placeholder)
+      else
+        input.form-control(id=id, type="text")
+
+mixin us-general
+  #us-general.tab-pane
+    h4 General Preferences
+    form.form-horizontal(action="javascript:void(0)")
+      .form-group
+        label.control-label.col-sm-4(for="#us-theme", style="display:none") Theme
+        .col-sm-8
+          select#us-theme.form-control(style="height: 35px;background: #0A0A0A;color: #fff;display:none")
+            option(value="/css/themes/slate.css") Default
+      .form-group
+        label.control-label.col-sm-4(for="#us-layout") Layout
+        .col-sm-8
+          select#us-layout.form-control(style="height: 35px;background: #0A0A0A;color: #fff;")
+            option(value="synchtube") Compact
+            option(value="synchtube-fluid") Full
+      .col-sm-4
+      .col-sm-8
+        p.text-danger Changing layouts may require refreshing to take effect.
+      mixin rcheckbox("us-no-channelcss", "Ignore Channel CSS")
+      //mixin rcheckbox("us-no-channeljs", "Ignore Channel Javascript")
+      .col-sm-4
+      .col-sm-8
+        p#us-conninfo.text-info(style="display:none") <strong>Connection Information: </strong>
+      .clear
+
+mixin us-playback
+  #us-playback.tab-pane
+    h4 Playback Preferences
+    form.form-horizontal(action="javascript:void(0)")
+      mixin rcheckbox("us-synch", "Synchronize video playback")
+      mixin textbox("us-synch-accuracy", "Synch threshold (seconds)", "2")
+      mixin rcheckbox("us-wmode-transparent", "Set wmode=transparent")
+      .col-sm-4
+      .col-sm-8
+        p.text-info Setting <code>wmode=transparent</code> allows objects to be displayed above the video player, but may cause performance issues on some systems.
+      mixin rcheckbox("us-no-h264", "Use flash for h.264 playback")
+      .col-sm-4
+      .col-sm-8
+        p.text-info tubesynch will attempt to autodetect browsers that do not natively support h.264 playback and fall back on a flash player.  This overrides that automatic detection and forces use of the flash player.
+      mixin rcheckbox("us-hidevideo", "Remove the video player")
+      mixin rcheckbox("us-playlistbuttons", "Hide playlist buttons by default")
+      mixin rcheckbox("us-oldbtns", "Alternate style playlist buttons")
+      .form-group
+        label.control-label.col-sm-4(for="#us-default-quality") Default quality
+        .col-sm-8
+          select#us-default-quality.form-control(style="height: 35px;background: #0A0A0A;color: #fff;")
+            option(value="auto") Auto
+            option(value="small") 240p
+            option(value="medium") 360p
+            option(value="large") 480p
+            option(value="hd720") 720p
+            option(value="hd1080") 1080p
+            option(value="highres") Highest Available
+
+mixin us-chat
+  #us-chat.tab-pane
+    h4 Chat Preferences
+    form.form-horizontal(action="javascript:void(0)")
+      mixin rcheckbox("us-chat-timestamp", "Show timestamps in chat")
+      mixin rcheckbox("us-sort-rank", "Sort userlist by rank")
+      mixin rcheckbox("us-sort-afk", "Sort AFK users to bottom")
+      .col-sm-4
+      .col-sm-8
+        p.text-info The following 2 options apply to how and when you will be notified if a new chat message is received while tubesynch is not the active window.
+      .form-group
+        label.control-label.col-sm-4(for="#us-blink-title") Blink page title on new messages
+        .col-sm-8
+          select#us-blink-title.form-control(style="height: 35px;background: #0A0A0A;color: #fff;")
+            option(value="never") Never
+            option(value="onlyping") Only when I am mentioned or PMed
+            option(value="always") Always
+      .form-group
+        label.control-label.col-sm-4(for="#us-ping-sound") Notification sound on new messages
+        .col-sm-8
+          select#us-ping-sound.form-control(style="height: 35px;background: #0A0A0A;color: #fff;")
+            option(value="never") Never
+            option(value="onlyping") Only when I am mentioned or PMed
+            option(value="always") Always
+      mixin rcheckbox("us-sendbtn", "Add a send button to chat")
+
+mixin us-mod
+  #us-mod.tab-pane
+    h4 Moderator Preferences
+    form.form-horizontal(action="javascript:void(0)")
+      mixin rcheckbox("us-modflair", "Show name color")
+      mixin rcheckbox("us-joinmessage", "Show join messages")
+      mixin rcheckbox("us-shadowchat", "Show shadowmuted messages")
