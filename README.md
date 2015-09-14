@@ -1,7 +1,7 @@
 tubesynch - [RETIRED]
 ===========================================================================================
 
-tubesynch has officially been retired and is no longer operating. The source code will remain on github.
+**tubesynch has officially been retired and is no longer operating. The source code will remain on github.**
 
 Please feel free to fork, modify, and submit pull requests if you'd like to help contribute new features to tubesynch. tubesynch runs on node.js so the primary scripting language is JavaScript. The rest is just basic CSS/HTML/Jade.
 
